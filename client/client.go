@@ -25,6 +25,8 @@ func (cl *Client) AddTorrentFromFile(fname string) (T *Torrent, err error) {
 
 }
 
+//Useful for multitorrent client => in the future
+//For a singletorrent client, t.DownloadAll() will be used
 func (cl *Client) DownloadTorrent(t *Torrent) {
 	t.DownloadAll()
 }
