@@ -1,8 +1,8 @@
 package client
 
 import (
-	"../torrent"
-	"fmt"
+	"github.com/georgi-gi/drapniGo/torrent"
+	//"fmt"
 	"github.com/anacrolix/torrent/metainfo"
 	"github.com/anacrolix/torrent/spec"
 	"github.com/anacrolix/torrent/tracker"
