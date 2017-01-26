@@ -1,14 +1,14 @@
     Working plan
 
-1. Decode torrent file to get tracker ip
+- 1. Decode torrent file to get tracker ip
     torrent struct
         attributes:
             []SHA-1 hashes for each piece
             bitarray, each bit tells whether i have the corresponding piece of the torrent
             
-2. Send get request to tracker to get peer information 
+- 2. Send get request to tracker to get peer information 
 
-3. Receive response from tracker which has ip addresses of peers
+- 3. Receive response from tracker which has ip addresses of peers
 
 4. Send Handshake messages to each peer  //https://wiki.theory.org/BitTorrentSpecification#Handshake
     receive handshake messages from peers (check peer-id from tracker (if there is one) with the one received - if different then close connection)
