@@ -6,32 +6,34 @@ import (
 	"bytes"
 	"crypto/sha1"
 	"errors"
-	//"fmt"
 	bencode "github.com/jackpal/bencode-go"
 	"os"
 	"strings"
-	//"encoding/hex"
 	"io"
-	//"log"
 )
 
 type FileDict struct {
 	//m.Info.Files[ind].Path
-	Length int64
-	Path   []string
-	Md5sum string
+	Length 		int64
+	Path   		[]string
+	Md5sum 		string
+	FirstPieceInd 	int64
+	FirstOffset	int64
+	LastPieceInd	int64
+	LastByteLast	int64
+	File		os.File
 }
 
 type InfoDict struct {
-	PieceLength int64 `bencode:"piece length"`
-	Pieces      string	//hashes of all pieces
-	Private     int64
-	Name        string
+	PieceLength 	int64 `bencode:"piece length"`
+	Pieces      	string	//hashes of all pieces
+	Private     	int64
+	Name        	string
 	// Single File Mode
-	Length int64
-	Md5sum string
+	Length 		int64
+	Md5sum 		string
 	// Multiple File mode
-	Files []FileDict
+	Files 		[]FileDict
 }
 
 type MetaInfo struct {
@@ -75,7 +77,7 @@ func getSliceSliceString(m map[string]interface{}, k string) (aas [][]string) {
 	return
 }
 
-func GetMetaInfo(torrent string) (metaInfo *MetaInfo, err error) {
+func getMetaInfo(torrent string) (metaInfo *MetaInfo, err error) {
 	var input io.ReadCloser
 	if input, err = os.Open(torrent); err != nil {
 		return

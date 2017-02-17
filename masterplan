@@ -10,10 +10,10 @@
 
 - 3. Receive response from tracker which has ip addresses of peers
 
-4. Send Handshake messages to each peer  //https://wiki.theory.org/BitTorrentSpecification#Handshake
+- 4. Send Handshake messages to each peer  // wiki.theory.org/BitTorrentSpecification#Handshake
     receive handshake messages from peers (check peer-id from tracker (if there is one) with the one received - if different then close connection)
     
-5. Peers send many Have requests, one for each piece each one has, or a bitfield
+- 5. Peers send many Have messages, one for each piece each one has, or a bitfield
     - peer struct - to store info for each peer i am connected to; 
         attrbutes: 
             bitarray for available parts
@@ -21,11 +21,11 @@
             port
             ...
             
-6. Send peers Interested messages in order to receive anything and wait for Unchoke message
+- 6. Send peers Interested messages in order to receive anything and wait for Unchoke message
 
-7. One piece is too big => divide it into blocks (sizeof(block) == 2^14 == 16384 bytes)
+- 7. One piece is too big => divide it into blocks (sizeof(block) == 2^14 == 16384 bytes)
 
-8. Send Request messages
+- 8. Send Request messages
     4 byte message length
     1 byte message id
     payload:
