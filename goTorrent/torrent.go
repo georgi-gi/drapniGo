@@ -557,18 +557,3 @@ func (p *peer) listenForMessages() {
 		}
 	}
 }
-
-func dividePieceIntoBlocks( /*...*/ ) {
-	//TODO
-}
-
-func sendRequestMessage( /*...*/ ) {
-	/*
-			4 byte message length
-		    	1 byte message id
-		        payload:
-			4 byte piece index (0 based)
-		        4 byte block offset within the piece (in bytes)
-		        4 byte block length (2^14)
-	*/
-}
