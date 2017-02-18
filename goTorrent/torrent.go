@@ -22,7 +22,7 @@ import (
 //https://wiki.theory.org/BitTorrentSpecification#request:_.3Clen.3D0013.3E.3Cid.3D6.3E.3Cindex.3E.3Cbegin.3E.3Clength.3E
 //Size of the block to download from a single peer
 //2^14
-const BLOCK_SIZE = 16384
+const BlockSize = 16384
 
 type hash [20]byte
 
@@ -137,6 +137,7 @@ func (t *GoTorrent) DownloadAll() {
 	t.done <- struct{}{}
 }
 
+//Wait reads from a channel which means that the torrent is downloaded
 func (t *GoTorrent) Wait() {
 	<-t.done
 }

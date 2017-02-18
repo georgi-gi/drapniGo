@@ -12,6 +12,7 @@ import (
 	"io"
 )
 
+//FileDict is the struct that contains all the information for a file in the torrent
 type FileDict struct {
 	//m.Info.Files[ind].Path
 	Length 		int64
@@ -24,6 +25,7 @@ type FileDict struct {
 	File		os.File
 }
 
+//InfoDict contains information about the torrent like pieces hashes and length
 type InfoDict struct {
 	PieceLength 	int64 `bencode:"piece length"`
 	Pieces      	string	//hashes of all pieces
@@ -36,6 +38,7 @@ type InfoDict struct {
 	Files 		[]FileDict
 }
 
+//MetaInfo contains information for the torrent and the tracker
 type MetaInfo struct {
 	Info         InfoDict
 	InfoHash     string
